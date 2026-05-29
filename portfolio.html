@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sakshi H N — Data Science Engineer</title>
+  <meta name="description" content="Sakshi H N — Data Science Engineer. Portfolio showcasing ML, Deep Learning, RAG systems and analytics projects."/>
+  <meta name="keywords" content="Sakshi H N, Data Science, Machine Learning, Deep Learning, Portfolio"/>
+  <meta property="og:title" content="Sakshi H N — Data Science Engineer"/>
+  <meta property="og:description" content="Portfolio of Sakshi H N — Data Science fresher building ML systems that matter."/>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <!-- Tabler Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"/>
+
+  <style>
+    /* ═══════════════════════════════════════════════
+       GLOBAL RESET & BASE
+    ═══════════════════════════════════════════════ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #F7F4EF;
+      color: #1C1510;
+      overflow-x: hidden;
+    }
+
+    /* ═══════════════════════════════════════════════
+       KEYFRAME ANIMATIONS
+    ═══════════════════════════════════════════════ */
+    @keyframes fadeUp    { from { opacity:0; transform:translateY(32px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes fadeIn    { from { opacity:0; } to { opacity:1; } }
+    @keyframes growW     { from { width:0; } to { width:60px; } }
+    @keyframes growH     { from { height:0; } to { height:100%; } }
+    @keyframes marquee   { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+    @keyframes blink     { 0%,100% { opacity:1; } 50% { opacity:0; } }
+    @keyframes float     { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-8px); } }
+    @keyframes rotateSlow{ from { transform:rotate(0deg); } to { transform:rotate(360deg); } }
+    @keyframes scaleIn   { from { transform:scale(0.92); opacity:0; } to { transform:scale(1); opacity:1; } }
+    @keyframes revealMask{ from { clip-path:inset(0 100% 0 0); } to { clip-path:inset(0 0% 0 0); } }
+    @keyframes countUp   { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes pulseGreen{ 0%,100% { box-shadow:0 0 0 0 rgba(74,222,128,0.4); } 50% { box-shadow:0 0 0 6px rgba(74,222,128,0); } }
+
+    /* ═══════════════════════════════════════════════
+       SCROLL PROGRESS BAR
+    ═══════════════════════════════════════════════ */
+    #progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      width: 0%;
+      background: linear-gradient(90deg, #C5A97A, #8B6B3D);
+      z-index: 9999;
+      transition: width 0.1s linear;
+    }
+
+    /* ═══════════════════════════════════════════════
+       NAVBAR
+    ═══════════════════════════════════════════════ */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 48px;
+      height: 58px;
+      background: #F7F4EF;
+      border-bottom: 0.5px solid #D9CEBD;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      animation: fadeIn 0.6s ease both;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #1C1510;
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 0;
+    }
+    .nav-links li a {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #7A6B55;
+      text-decoration: none;
+      display: block;
+      padding: 8px 14px;
+      position: relative;
+      transition: color 0.25s;
+    }
+    .nav-links li a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 14px; right: 14px;
+      height: 1.5px;
+      background: #C5A97A;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.28s cubic-bezier(0.16,1,0.3,1);
+    }
+    .nav-links li a:hover { color: #1C1510; }
+    .nav-links li a:hover::after { transform: scaleX(1); }
+
+    /* ── CHANGE 1: Resume button href → link your resume PDF here ── */
+    .nav-resume {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 9px 22px;
+      background: #1C1510;
+      color: #F7F4EF;
+      border: none;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.22s;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      text-decoration: none;
+    }
+    .nav-resume:hover { background: #5a3a22; transform: translateY(-1px); }
+
+    /* ═══════════════════════════════════════════════
+       HERO SECTION
+    ═══════════════════════════════════════════════ */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      min-height: calc(100vh - 58px);
+      background: #F7F4EF;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Hero Left */
+    .hero-left {
+      padding: 0 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-right: 0.5px solid #D9CEBD;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-vline {
+      position: absolute;
+      left: 0; top: 0;
+      width: 3px;
+      background: #C5A97A;
+      height: 0;
+      animation: growH 0.8s 0.2s cubic-bezier(0.16,1,0.3,1) both;
+    }
+    .hero-available {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 28px;
+      animation: fadeUp 0.6s 0.1s both;
+    }
+    .avail-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #4ade80;
+      animation: pulseGreen 2s infinite;
+    }
+    .avail-text {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #8B7355;
+    }
+
+    /* ── CHANGE 2: Your name is here ── */
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 72px;
+      font-weight: 900;
+      line-height: 0.92;
+      color: #1C1510;
+      text-transform: uppercase;
+      letter-spacing: 0.015em;
+      animation: revealMask 1.1s 0.15s cubic-bezier(0.77,0,0.18,1) both;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .hero-rule {
+      width: 0; height: 2.5px;
+      background: linear-gradient(90deg, #C5A97A, #8B6B3D);
+      margin: 18px 0 20px;
+      border-radius: 2px;
+    }
+    .hero-role-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      animation: fadeUp 0.6s 0.32s both;
+    }
+    .role-chip {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      background: #1C1510;
+      color: #F7F4EF;
+      padding: 8px 18px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .role-chip i { font-size: 11px; color: #C5A97A; }
+    .role-meta { font-size: 11px; color: #8B7355; letter-spacing: 0.05em; }
+
+    /* ── CHANGE 3: Edit tagline text here ── */
+    .hero-desc {
+      font-size: 13.5px;
+      line-height: 1.9;
+      color: #4e4438;
+      max-width: 420px;
+      margin-bottom: 32px;
+      animation: fadeUp 0.6s 0.4s both;
+    }
+    .hero-desc strong { color: #1C1510; font-weight: 600; }
+    .cursor {
+      display: inline-block;
+      width: 2px; height: 0.9em;
+      background: #C5A97A;
+      margin-left: 2px;
+      vertical-align: middle;
+      animation: blink 1s infinite;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 28px;
+      animation: fadeUp 0.6s 0.48s both;
+    }
+
+    /* ── CHANGE 4: "Download Resume" button → update href to your PDF ── */
+    .btn-solid {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 13px 26px;
+      background: #1C1510;
+      color: #F7F4EF;
+      border: 1.5px solid #1C1510;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.22s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-solid::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: #5a3a22;
+      transform: translateX(-101%);
+      transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
+      z-index: 0;
+    }
+    .btn-solid:hover::before { transform: translateX(0); }
+    .btn-solid span, .btn-solid i { position: relative; z-index: 1; }
+    .btn-solid i { font-size: 13px; }
+
+    .btn-outline {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 13px 26px;
+      background: #EDE5D8;
+      color: #1C1510;
+      border: 1.5px solid #C5A97A;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.22s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .btn-outline:hover { background: #1C1510; color: #F7F4EF; border-color: #1C1510; }
+    .btn-outline i { font-size: 13px; }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0;
+      animation: fadeUp 0.6s 0.56s both;
+    }
+    .hmeta {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      color: #8B7355;
+      padding: 0 14px;
+      border-right: 0.5px solid #D9CEBD;
+    }
+    .hmeta:first-child { padding-left: 0; }
+    .hmeta:last-child { border-right: none; }
+    .hmeta i { font-size: 13px; color: #C5A97A; }
+    .hmeta a { color: #8B7355; text-decoration: none; }
+    .hmeta a:hover { color: #1C1510; }
+
+    /* Hero Right */
+    .hero-right {
+        background: #E5DDD0;
+        position: relative;
+        overflow: hidden;
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+        justify-content: center;
+
+        gap: 0;
+
+        padding-top: 0;
+    }
+    
+    .photo-section {
+        margin-top: -40px;
+    }
+
+    .hero-right-bg {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(197,169,122,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(197,169,122,0.07) 1px, transparent 1px);
+      background-size: 32px 32px;
+      animation: fadeIn 1.2s 0.4s both;
+    }
+    .hero-ring {
+      position: absolute;
+      top: 28px; right: 28px;
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      border: 0.5px solid #C5A97A;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 1s 1s both;
+    }
+    .hero-ring-inner {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      border: 0.5px dashed #C5A97A;
+      animation: rotateSlow 12s linear infinite;
+    }
+    .hero-corner {
+      position: absolute;
+      top: 20px; left: 20px;
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #C5A97A;
+      animation: fadeIn 0.8s 0.9s both;
+    }
+
+    /* ── CHANGE 5: Replace placeholder with your photo ──
+       Find .hero-photo-box img and set src="your-photo.jpg"
+       OR just drop your image file in the same folder as this HTML
+       and change src to the filename.
+    ── */
+    
+    .hero-right {
+        background: #E5DDD0;
+        position: relative;
+        overflow: hidden;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-photo-outer {
+        position: relative;
+        width: 220px;
+        z-index: 2;
+        animation: scaleIn 1s 0.35s cubic-bezier(0.16,1,0.3,1) both;
+
+        margin: 0;
+    }
+
+    .hero-stats {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    .hero-photo-box {
+      width: 220px;
+      height: 290px;
+      background: #CFC6B7;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .hero-photo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    .hero-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-placeholder i { font-size: 38px; color: #A09080; }
+    .hero-placeholder span {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #A09080;
+    }
+    .photo-tl, .photo-br {
+      position: absolute;
+      width: 28px; height: 28px;
+    }
+    .photo-tl { top: -8px; left: -8px; border-top: 1.5px solid #C5A97A; border-left: 1.5px solid #C5A97A; }
+    .photo-br { bottom: -8px; right: -8px; border-bottom: 1.5px solid #C5A97A; border-right: 1.5px solid #C5A97A; }
+    .hero-float-tag {
+      position: absolute;
+      bottom: 60px; left: -24px;
+      background: #1C1510;
+      color: #F7F4EF;
+      padding: 10px 16px;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      animation: float 3s ease-in-out infinite;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      white-space: nowrap;
+      z-index: 3;
+    }
+    .hero-float-tag strong { color: #C5A97A; }
+
+    .hero-stats {
+      width: 100%;
+      display: flex;
+      background: #1C1510;
+      z-index: 2;
+      flex-shrink: 0;
+    }
+    .hstat {
+      flex: 1;
+      text-align: center;
+      padding: 14px 8px;
+      border-right: 0.5px solid #2e2218;
+    }
+    .hstat:last-child { border-right: none; }
+    .hstat-n {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 900;
+      color: #C5A97A;
+      display: block;
+    }
+    .hstat-l {
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #5a4030;
+    }
+
+    /* ═══════════════════════════════════════════════
+       MARQUEE STRIP
+    ═══════════════════════════════════════════════ */
+    .strip {
+      background: #1C1510;
+      padding: 13px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .strip-track {
+      display: inline-flex;
+      gap: 32px;
+      animation: marquee 22s linear infinite;
+    }
+    .s-item {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #C5A97A;
+    }
+    .s-dot { color: #3D2E1E; font-size: 7px; }
+
+    /* ═══════════════════════════════════════════════
+       ABOUT + SKILLS
+    ═══════════════════════════════════════════════ */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1.55fr;
+      border-bottom: 0.5px solid #D9CEBD;
+    }
+    .about-left {
+      padding: 56px 48px;
+      background: #EDE5D8;
+      border-right: 0.5px solid #D9CEBD;
+    }
+    .eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #8B7355;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+    .eyebrow::after { content: ''; flex: 1; height: 0.5px; background: #D9CEBD; }
+    .about-h {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      font-weight: 900;
+      line-height: 1.15;
+      color: #1C1510;
+      margin-bottom: 18px;
+    }
+    .about-h em { font-style: italic; color: #7A6248; }
+
+    /* ── CHANGE 6: Edit your About Me paragraph here ── */
+    .about-p {
+      font-size: 13px;
+      line-height: 1.85;
+      color: #5a4f40;
+      margin-bottom: 26px;
+    }
+    .dtable { width: 100%; border-collapse: collapse; }
+    .dtable tr { border-bottom: 0.5px solid #D9CEBD; }
+    .dtable td { padding: 10px 0; font-size: 12px; color: #6B5F4E; }
+    .dtable td:last-child { text-align: right; font-weight: 500; color: #1C1510; }
+    .about-right { padding: 56px 48px; }
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+    .sk-cat {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #C5A97A;
+      font-weight: 600;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 0.5px solid #D9CEBD;
+    }
+    .sk-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .stag {
+      font-size: 11px;
+      padding: 5px 12px;
+      background: #F2EDE4;
+      border: 0.5px solid #D9CEBD;
+      color: #5a4030;
+      letter-spacing: 0.03em;
+      transition: all 0.18s;
+      cursor: default;
+    }
+    .stag:hover, .stag.hi { background: #1C1510; color: #EDE5D8; border-color: #1C1510; }
+
+    /* ═══════════════════════════════════════════════
+       PROJECTS
+    ═══════════════════════════════════════════════ */
+    .proj-sec { padding: 56px 48px; border-bottom: 0.5px solid #D9CEBD; }
+    .sec-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 32px;
+    }
+    .sec-eye {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #8B7355;
+    }
+    .sec-h {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      font-weight: 900;
+      color: #1C1510;
+      margin-top: 6px;
+    }
+    .sec-viewall {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #1C1510;
+      text-decoration: none;
+      background: #EDE5D8;
+      padding: 8px 16px;
+      border: 1.5px solid #C5A97A;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .sec-viewall:hover { background: #1C1510; color: #F7F4EF; }
+    .pcard {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      border: 0.5px solid #D9CEBD;
+      margin-bottom: 14px;
+      background: #fff;
+      transition: transform 0.32s cubic-bezier(0.16,1,0.3,1), border-color 0.22s, box-shadow 0.32s;
+      cursor: pointer;
+    }
+    .pcard:hover {
+      transform: translateY(-4px);
+      border-color: #C5A97A;
+      box-shadow: 0 12px 40px rgba(28,21,16,0.08);
+    }
+    .pcard-img {
+      background: #EDE5D8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-right: 0.5px solid #D9CEBD;
+      padding: 18px 14px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.25s;
+    }
+    .pcard:hover .pcard-img { background: #D9CEBD; }
+    .pcard-accent { position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: #C5A97A; }
+    .pcard-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 38px;
+      font-weight: 900;
+      color: #D4C9B5;
+      line-height: 1;
+      margin-bottom: 6px;
+      transition: color 0.25s;
+    }
+    .pcard:hover .pcard-num { color: #C5A97A; }
+    .pcard-type {
+      font-size: 9px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: #8B7355;
+      background: #F7F4EF;
+      padding: 3px 8px;
+      text-align: center;
+    }
+    .pcard-body { padding: 20px 24px; }
+    .pcard-idx { font-size: 10px; color: #C5A97A; letter-spacing: 0.12em; margin-bottom: 6px; }
+    .pcard-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1C1510;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .pcard-desc { font-size: 12px; line-height: 1.75; color: #5a4f40; margin-bottom: 9px; }
+    .pcard-result {
+      font-size: 11px;
+      font-weight: 500;
+      color: #7A6248;
+      border-left: 2px solid #C5A97A;
+      padding-left: 10px;
+      margin-bottom: 10px;
+    }
+    .ptags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
+    .ptag { font-size: 10px; padding: 3px 10px; background: #F2EDE4; color: #7A6248; letter-spacing: 0.03em; }
+    .pbtn {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      background: #1C1510;
+      color: #F7F4EF;
+      border: 1.5px solid #1C1510;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+    .pbtn:hover { background: #5a3a22; border-color: #5a3a22; }
+    .pbtn i { font-size: 12px; }
+
+    /* ═══════════════════════════════════════════════
+       EXPERIENCE + EDUCATION
+    ═══════════════════════════════════════════════ */
+    .exp-sec {
+      display: grid;
+      grid-template-columns: 1fr 1.55fr;
+      border-bottom: 0.5px solid #D9CEBD;
+    }
+    .exp-left { padding: 56px 48px; background: #1C1510; }
+    .exp-eye {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #C5A97A;
+      margin-bottom: 20px;
+    }
+    .exp-h {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      font-weight: 900;
+      color: #F2EDE4;
+      line-height: 1.15;
+      margin-bottom: 30px;
+    }
+    .exp-h em { font-style: italic; color: #C5A97A; }
+    .edu-item {
+      margin-bottom: 22px;
+      padding-bottom: 22px;
+      border-bottom: 0.5px solid #2e2420;
+      transition: padding-left 0.22s;
+      cursor: default;
+    }
+    .edu-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .edu-item:hover { padding-left: 8px; }
+    .edu-deg { font-size: 13px; font-weight: 500; color: #F2EDE4; margin-bottom: 4px; }
+    .edu-sch { font-size: 11px; color: #C5A97A; margin-bottom: 2px; }
+    .edu-yr { font-size: 10px; color: #5a4030; letter-spacing: 0.1em; }
+    .exp-right { padding: 56px 48px; }
+    .tl-item {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 18px;
+      margin-bottom: 26px;
+      padding-bottom: 26px;
+      border-bottom: 0.5px solid #D9CEBD;
+      transition: padding-left 0.2s;
+    }
+    .tl-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .tl-item:hover { padding-left: 6px; }
+    .tl-yr { font-size: 11px; color: #C5A97A; font-weight: 500; padding-top: 2px; }
+    .tl-role { font-size: 14px; font-weight: 600; color: #1C1510; margin-bottom: 3px; }
+    .tl-co { font-size: 10px; color: #8B7355; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 7px; }
+    .tl-badge {
+      display: inline-block;
+      font-size: 10px;
+      padding: 3px 10px;
+      background: #EDE5D8;
+      color: #7A6248;
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+      border: 0.5px solid #C5A97A;
+    }
+    .tl-desc { font-size: 12px; line-height: 1.75; color: #5a4f40; }
+
+    /* ═══════════════════════════════════════════════
+       ACHIEVEMENTS
+    ═══════════════════════════════════════════════ */
+    .ach-sec {
+      padding: 56px 48px;
+      border-bottom: 0.5px solid #D9CEBD;
+      background: #F2EDE4;
+    }
+    .ach-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .ach-card {
+      background: #FAF8F5;
+      border: 0.5px solid #D9CEBD;
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.28s cubic-bezier(0.16,1,0.3,1), background 0.25s, border-color 0.25s, box-shadow 0.28s;
+      cursor: default;
+    }
+    .ach-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: #C5A97A;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.32s cubic-bezier(0.16,1,0.3,1);
+    }
+    .ach-card:hover {
+      transform: translateY(-5px);
+      background: #1C1510;
+      border-color: #1C1510;
+      box-shadow: 0 16px 40px rgba(28,21,16,0.14);
+    }
+    .ach-card:hover::before { transform: scaleX(1); }
+    .ach-card:hover .ach-num  { color: #C5A97A; }
+    .ach-card:hover .ach-title{ color: #F2EDE4; }
+    .ach-card:hover .ach-sub  { color: #7A6B55; }
+    .ach-card:hover .ach-ico  { color: #2e2420; }
+    .ach-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 900;
+      color: #C5A97A;
+      margin-bottom: 7px;
+      transition: color 0.25s;
+    }
+    .ach-title { font-size: 13px; font-weight: 600; color: #1C1510; margin-bottom: 4px; transition: color 0.25s; }
+    .ach-sub { font-size: 11px; color: #8B7355; line-height: 1.55; transition: color 0.25s; }
+    .ach-ico { position: absolute; top: 14px; right: 14px; font-size: 20px; color: #EDE5D8; transition: color 0.25s; }
+
+    /* ═══════════════════════════════════════════════
+       CONTACT
+    ═══════════════════════════════════════════════ */
+    .contact-sec {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 0.5px solid #D9CEBD;
+    }
+    .contact-left { padding: 56px 48px; border-right: 0.5px solid #D9CEBD; }
+    .contact-h {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 900;
+      line-height: 1.1;
+      color: #1C1510;
+      margin-top: 12px;
+      margin-bottom: 22px;
+    }
+    .contact-h em { font-style: italic; color: #7A6248; }
+    .crows { display: flex; flex-direction: column; gap: 14px; margin-bottom: 26px; }
+    .crow { display: flex; align-items: center; gap: 10px; font-size: 13px; color: #5a4f40; }
+    .crow i { font-size: 16px; color: #C5A97A; }
+    .crow a { color: #5a4f40; text-decoration: none; }
+    .crow a:hover { color: #1C1510; }
+    .social-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .sbtn {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 9px 16px;
+      background: #EDE5D8;
+      color: #1C1510;
+      border: 1.5px solid #C5A97A;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+    .sbtn i { font-size: 13px; }
+    .sbtn:hover { background: #1C1510; color: #F7F4EF; border-color: #1C1510; }
+    .contact-right { padding: 56px 48px; background: #EDE5D8; }
+    .form-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: #1C1510;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 26px;
+      padding-bottom: 12px;
+      border-bottom: 0.5px solid #D9CEBD;
+    }
+    .flabel {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #1C1510;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 7px;
+    }
+    .finput {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #C5A97A;
+      padding: 8px 0;
+      font-size: 13px;
+      color: #1C1510;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      margin-bottom: 22px;
+      transition: border-color 0.2s;
+    }
+    .finput:focus { border-color: #1C1510; }
+    .finput::placeholder { color: #B5A898; font-size: 12px; }
+    .fsubmit {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 13px;
+      background: #1C1510;
+      color: #F7F4EF;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      transition: background 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .fsubmit:hover { background: #5a3a22; }
+    .fsubmit i { font-size: 14px; }
+
+    /* ═══════════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════════ */
+    footer {
+      background: #0E0B08;
+      padding: 24px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      font-weight: 900;
+      color: #EDE5D8;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .footer-copy { font-size: 11px; color: #3D2E1E; }
+    .footer-links { display: flex; gap: 18px; }
+    .flink {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #5a4030;
+      cursor: pointer;
+      transition: color 0.2s;
+      text-decoration: none;
+    }
+    .flink:hover { color: #C5A97A; }
+
+    /* ═══════════════════════════════════════════════
+       SCROLL REVEAL UTILITY
+    ═══════════════════════════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.75s cubic-bezier(0.16,1,0.3,1), transform 0.75s cubic-bezier(0.16,1,0.3,1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ═══════════════════════════════════════════════
+       RESPONSIVE — MOBILE
+    ═══════════════════════════════════════════════ */
+    @media (max-width: 768px) {
+      .nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-right { min-height: 320px; }
+      .hero-left { padding: 40px 20px; }
+      .hero-name { font-size: 46px; }
+      .about, .exp-sec, .contact-sec { grid-template-columns: 1fr; }
+      .about-left, .exp-left { border-right: none; border-bottom: 0.5px solid #D9CEBD; }
+      .ach-grid { grid-template-columns: repeat(2, 1fr); }
+      .proj-sec, .about-left, .about-right, .exp-right, .contact-left, .contact-right, .ach-sec { padding: 40px 20px; }
+      footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px 20px; }
+      .skills-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- SCROLL PROGRESS BAR -->
+<div id="progress-bar"></div>
+
+<!-- ════════════════════════
+     NAVBAR
+════════════════════════ -->
+<nav class="nav">
+  <a href="#" class="nav-logo">Sakshi H N</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <!--
+    ╔══════════════════════════════════════════════════╗
+    ║  CHANGE A: Update href to your resume PDF path   ║
+    ║  Example: href="resume/Sakshi_HN_Resume.pdf"     ║
+    ╚══════════════════════════════════════════════════╝
+  -->
+  <a href="./Sakshi_H_N-Resume (2).pdf" download class="nav-resume">
+    <i class="ti ti-download"></i>Resume
+  </a>
+</nav>
+
+<!-- ════════════════════════
+     HERO SECTION
+════════════════════════ -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-vline"></div>
+
+    <div class="hero-available">
+      <div class="avail-dot"></div>
+      <!--
+        ╔══════════════════════════════════════════════════╗
+        ║  CHANGE B: Update availability status text       ║
+        ╚══════════════════════════════════════════════════╝
+      -->
+      <span class="avail-text">Available for Opportunities · 2026</span>
+    </div>
+
+    <!--
+      ╔══════════════════════════════════════════════════╗
+      ║  CHANGE C: Your name — edit here                 ║
+      ╚══════════════════════════════════════════════════╝
+    -->
+    <span class="hero-name">SAKSHI H N</span>
+
+    <div class="hero-rule" id="hero-rule"></div>
+
+    <div class="hero-role-row">
+      <div class="role-chip">
+        <i class="ti ti-chart-dots-3"></i>
+        <!--
+          ╔══════════════════════════════════════════════════╗
+          ║  CHANGE D: Your job title                        ║
+          ╚══════════════════════════════════════════════════╝
+        -->
+         <span>Data Science Engineer</span>
+      </div>
+    </div>
+
+    <!--
+      ╔══════════════════════════════════════════════════╗
+      ║  CHANGE E: Edit your hero description            ║
+      ╚══════════════════════════════════════════════════╝
+    -->
+    <p class="hero-desc">
+      I'm a <strong>passionate Data Science fresher</strong> from India, driven by curiosity and a love for solving real problems with data. I enjoy learning, building, and collaborating — always eager to grow, contribute meaningfully, and make an impact wherever I work.<span class="cursor"></span>
+    </p>
+
+    <div class="hero-btns">
+      <!--
+        ╔══════════════════════════════════════════════════╗
+        ║  CHANGE F: Update resume PDF href               ║
+        ╚══════════════════════════════════════════════════╝
+      -->
+      <a href="./Sakshi_H_N-Resume (2).pdf" download class="btn-solid">
+        <i class="ti ti-download"></i><span>Download Resume</span>
+      </a>
+      <a href="#projects" class="btn-outline">
+        <i class="ti ti-folder-open"></i>View Projects
+      </a>
+    </div>
+
+    <div class="hero-meta">
+      <div class="hmeta"><i class="ti ti-map-pin"></i>India</div>
+      <!--
+        ╔══════════════════════════════════════════════════╗
+        ║  CHANGE G: Update all social / contact links     ║
+        ╚══════════════════════════════════════════════════╝
+      -->
+      <div class="hmeta"><i class="ti ti-mail"></i><a href="mailto:sakshinhoskeri@gmail.com">sakshinhoskeri@gmail.com</a></div>
+      <div class="hmeta"><i class="ti ti-brand-github"></i><a href="https://github.com/sakshihn" target="_blank">github.com/sakshihn</a></div>
+      <div class="hmeta"><i class="ti ti-brand-linkedin"></i><a href="https://www.linkedin.com/in/sakshihn/" target="_blank">linkedin/sakshihn</a></div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-right-bg"></div>
+    <div class="hero-ring"><div class="hero-ring-inner"></div></div>
+    <div class="hero-corner">PORTFOLIO · 2026</div>
+
+    <div class="hero-photo-outer">
+      <div class="hero-photo-box">
+        <!--
+          ╔══════════════════════════════════════════════════════════╗
+          ║  CHANGE H: ADD YOUR PHOTO                                ║
+          ║  Step 1 — Save your photo as "photo.jpg" in same folder  ║
+          ║  Step 2 — Replace the placeholder div below with:        ║
+          ║                                                          ║
+          ║    <img src="photo.jpg" alt="Sakshi H N" />              ║
+          ║                                                          ║
+          ║  Or use a URL:                                           ║
+          ║    <img src="https://yourlink.com/photo.jpg" alt="..." />║
+          ╚══════════════════════════════════════════════════════════╝
+        -->
+        <div class="hero-photo-box">
+            <img src="./ChatGPT Image May 27, 2026, 08_50_25 PM (1).png" alt="Sakshi H N">
+        </div>
+      </div>
+      <div class="photo-tl"></div>
+      <div class="photo-br"></div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hstat"><span class="hstat-n">8.2</span><span class="hstat-l">CGPA</span></div>
+      <div class="hstat"><span class="hstat-n">3+</span><span class="hstat-l">Projects</span></div>
+      <div class="hstat"><span class="hstat-n">6+</span><span class="hstat-l">Hackathons</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE STRIP -->
+<div class="strip">
+  <div class="strip-track">
+    <span class="s-item">Python</span><span class="s-dot">✦</span>
+    <span class="s-item">Machine Learning</span><span class="s-dot">✦</span>
+    <span class="s-item">Deep Learning</span><span class="s-dot">✦</span>
+    <span class="s-item">LSTM · GRU</span><span class="s-dot">✦</span>
+    <span class="s-item">SQL</span><span class="s-dot">✦</span>
+    <span class="s-item">Power BI</span><span class="s-dot">✦</span>
+    <span class="s-item">Tableau</span><span class="s-dot">✦</span>
+    <span class="s-item">RAG · LLM</span><span class="s-dot">✦</span>
+    <span class="s-item">Random Forest</span><span class="s-dot">✦</span>
+    <span class="s-item">Streamlit</span><span class="s-dot">✦</span>
+    <span class="s-item">Python</span><span class="s-dot">✦</span>
+    <span class="s-item">Machine Learning</span><span class="s-dot">✦</span>
+    <span class="s-item">Deep Learning</span><span class="s-dot">✦</span>
+    <span class="s-item">LSTM · GRU</span><span class="s-dot">✦</span>
+    <span class="s-item">SQL</span><span class="s-dot">✦</span>
+    <span class="s-item">Power BI</span><span class="s-dot">✦</span>
+    <span class="s-item">RAG · LLM</span><span class="s-dot">✦</span>
+    <span class="s-item">Random Forest</span><span class="s-dot">✦</span>
+  </div>
+</div>
+
+<!-- ════════════════════════
+     ABOUT + SKILLS
+════════════════════════ -->
+<section class="about" id="about">
+  <div class="about-left reveal">
+    <p class="eyebrow">About Me</p>
+    <h2 class="about-h">Data meets<br><em>design of thought.</em></h2>
+    <!--
+      ╔══════════════════════════════════════════════════╗
+      ║  CHANGE I: Edit your About Me paragraph          ║
+      ╚══════════════════════════════════════════════════╝
+    -->
+    <p class="about-p">Data science fresher seeking opportunities to apply analytical skills and contribute to data-driven decision making. Passionate about ML, time-series analysis, RAG systems, and building models that solve real-world problems across healthcare, finance, and commerce.</p>
+    <table class="dtable">
+      <tr><td>Degree</td>    <td>BE in CSE — Data Science</td></tr>
+      <tr><td>University</td><td>Visvesvaraya Technological University</td></tr>
+      <tr><td>College</td>   <td>Mysore College of Engineering &amp; Management</td></tr>
+      <tr><td>CGPA</td>      <td>8.2 / 10</td></tr>
+      <tr><td>Location</td>  <td>India</td></tr>
+    </table>
+  </div>
+  <div class="about-right reveal">
+    <p class="eyebrow" style="margin-bottom:24px;">Skills &amp; Expertise</p>
+    <div class="skills-grid">
+      <!--
+        ╔══════════════════════════════════════════════════╗
+        ║  CHANGE J: Add/remove skill tags here            ║
+        ║  .hi = highlighted (dark filled)                 ║
+        ╚══════════════════════════════════════════════════╝
+      -->
+      <div>
+        <p class="sk-cat">Programming</p>
+        <div class="sk-tags">
+          <span class="stag hi">Python</span>
+          <span class="stag hi">SQL</span>
+          <span class="stag">JavaScript</span>
+          <span class="stag">HTML5</span>
+          <span class="stag">CSS3</span>
+        </div>
+      </div>
+      <div>
+        <p class="sk-cat">ML / AI</p>
+        <div class="sk-tags">
+          <span class="stag hi">Machine Learning</span>
+          <span class="stag hi">Deep Learning</span>
+          <span class="stag">LSTM / GRU</span>
+          <span class="stag">RAG / LLM</span>
+          <span class="stag">Time Series</span>
+        </div>
+      </div>
+      <div>
+        <p class="sk-cat">Analytics Tools</p>
+        <div class="sk-tags">
+          <span class="stag hi">Power BI</span>
+          <span class="stag hi">Tableau</span>
+          <span class="stag">Streamlit</span>
+          <span class="stag">Jupyter</span>
+          <span class="stag">Excel</span>
+        </div>
+      </div>
+      <div>
+        <p class="sk-cat">Databases &amp; Frameworks</p>
+        <div class="sk-tags">
+          <span class="stag hi">MySQL</span>
+          <span class="stag hi">Oracle SQL</span>
+          <span class="stag hi">Django</span>
+          <span class="stag">Git / GitHub</span>
+          <span class="stag">VS Code</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════
+     PROJECTS
+════════════════════════ -->
+<section class="proj-sec" id="projects">
+  <div class="sec-top reveal">
+    <div>
+      <p class="sec-eye">Featured Work</p>
+      <h2 class="sec-h">Projects</h2>
+    </div>
+    <!--
+      ╔══════════════════════════════════════════════════╗
+      ║  CHANGE K: "All Projects" → your GitHub URL      ║
+      ╚══════════════════════════════════════════════════╝
+    -->
+    <a href="https://github.com/sakshihn" target="_blank" class="sec-viewall">
+      All Projects <i class="ti ti-arrow-right"></i>
+    </a>
+  </div>
+
+  <!--
+    ╔══════════════════════════════════════════════════════════════╗
+    ║  CHANGE L: PROJECT 1 — Update GitHub link, title, desc      ║
+    ╚══════════════════════════════════════════════════════════════╝
+  -->
+  <div class="pcard reveal">
+    <div class="pcard-img">
+      <div class="pcard-accent"></div>
+      <div class="pcard-num">01</div>
+      <span class="pcard-type">Deep Learning</span>
+    </div>
+    <div class="pcard-body">
+      <p class="pcard-idx">01 — Time Series Forecasting</p>
+      <h3 class="pcard-title">Cryptocurrency Price Prediction</h3>
+      <p class="pcard-desc">LSTM and GRU networks trained on historical crypto data to forecast price trends. Applied preprocessing and feature scaling to handle market volatility.</p>
+      <div class="ptags">
+        <span class="ptag">Python</span><span class="ptag">LSTM</span>
+        <span class="ptag">GRU</span><span class="ptag">Time Series</span><span class="ptag">Pandas</span>
+      </div>
+      <a href="https://github.com/sakshihn" target="_blank" class="pbtn">
+        <i class="ti ti-brand-github"></i>GitHub
+      </a>
+    </div>
+  </div>
+
+  <!--
+    ╔══════════════════════════════════════════════════════════════╗
+    ║  CHANGE M: PROJECT 2 — Healthcare RAG                       ║
+    ╚══════════════════════════════════════════════════════════════╝
+  -->
+  <div class="pcard reveal">
+    <div class="pcard-img">
+      <div class="pcard-accent"></div>
+      <div class="pcard-num">02</div>
+      <span class="pcard-type">RAG · LLM</span>
+    </div>
+    <div class="pcard-body">
+      <p class="pcard-idx">02 — Healthcare AI</p>
+      <h3 class="pcard-title">Healthcare RAG System</h3>
+      <p class="pcard-desc">Retrieval-Augmented Generation pipeline for healthcare Q&amp;A. Intelligent document retrieval and AI-powered responses for medical queries using LLM and vector search.</p>
+      <div class="ptags">
+        <span class="ptag">Python</span><span class="ptag">RAG</span>
+        <span class="ptag">LLM</span><span class="ptag">Vector DB</span><span class="ptag">LangChain</span>
+      </div>
+      <a href="https://github.com/sakshihn/healthcare-rag" target="_blank" class="pbtn">
+        <i class="ti ti-brand-github"></i>GitHub
+      </a>
+    </div>
+  </div>
+
+  <!--
+    ╔══════════════════════════════════════════════════════════════╗
+    ║  CHANGE N: PROJECT 3 — QuickMind Analytics                  ║
+    ╚══════════════════════════════════════════════════════════════╝
+  -->
+  <div class="pcard reveal">
+    <div class="pcard-img">
+      <div class="pcard-accent"></div>
+      <div class="pcard-num">03</div>
+      <span class="pcard-type">ML · Analytics</span>
+    </div>
+    <div class="pcard-body">
+      <p class="pcard-idx">03 — Commerce Intelligence</p>
+      <h3 class="pcard-title">QuickMind Analytics</h3>
+      <p class="pcard-desc">End-to-end ML prediction dashboard for quick commerce — Blinkit, Zepto, Swiggy Instamart. Full Streamlit + Plotly analytics pipeline.</p>
+      <p class="pcard-result">Random Forest R² = 0.9658 · 9,40,000 orders analyzed</p>
+      <div class="ptags">
+        <span class="ptag">Python</span><span class="ptag">Random Forest</span>
+        <span class="ptag">Streamlit</span><span class="ptag">Plotly</span>
+      </div>
+      <a href="https://github.com/sakshihn/quickmind-analytics" target="_blank" class="pbtn">
+        <i class="ti ti-brand-github"></i>GitHub
+      </a>
+    </div>
+  </div>
+    <div style="display:flex; justify-content:flex-end; margin-top:8px;">
+        <a href="https://github.com/sakshihn" target="_blank"
+        style="font-size:11px;letter-spacing:0.13em;text-transform:uppercase;
+                padding:11px 22px;background:#F2EDE4;color:#1C1510;
+                border:1.5px solid #C5A97A;text-decoration:none;
+                display:inline-flex;align-items:center;gap:8px;
+                transition:all 0.2s;"
+        onmouseover="this.style.background='#1C1510';this.style.color='#F7F4EF';"
+        onmouseout="this.style.background='#F2EDE4';this.style.color='#1C1510';">
+        <i class="ti ti-brand-github"></i> View All Projects on GitHub
+        </a>
+    </div>
+</section>
+
+<!-- ════════════════════════
+     EXPERIENCE + EDUCATION
+════════════════════════ -->
+<section class="exp-sec" id="experience">
+  <div class="exp-left reveal">
+    <p class="exp-eye">Education</p>
+    <h2 class="exp-h">Academic<br><em>Foundation</em></h2>
+    <!--
+      ╔══════════════════════════════════════════════════╗
+      ║  CHANGE O: Edit education details                ║
+      ╚══════════════════════════════════════════════════╝
+    -->
+    <div class="edu-item">
+      <p class="edu-deg">BE in CSE — Data Science</p>
+      <p class="edu-sch">MCEM · Visvesvaraya Technological University</p>
+      <p class="edu-yr">2022 – 2026 · CGPA 8.2</p>
+    </div>
+    <div class="edu-item">
+      <p class="edu-deg">Pre-University (PUC)</p>
+      <p class="edu-sch">Vikasa PU College, Shivamogga</p>
+      <p class="edu-yr">2020 – 2022 · 78.8%</p>
+    </div>
+    <div class="edu-item">
+      <p class="edu-deg">SSLC</p>
+      <p class="edu-sch">Vikasa High School, Shivamogga</p>
+      <p class="edu-yr">2020 · 91.2%</p>
+    </div>
+  </div>
+  <div class="exp-right reveal">
+    <p class="eyebrow" style="margin-bottom:28px;">Experience &amp; Certifications</p>
+    <!--
+      ╔══════════════════════════════════════════════════╗
+      ║  CHANGE P: Edit internship / experience items    ║
+      ╚══════════════════════════════════════════════════╝
+    -->
+    <div class="tl-item">
+      <div class="tl-yr">Feb – May 2026</div>
+      <div>
+        <p class="tl-role">Data Science Intern</p>
+        <p class="tl-co">KodNest Technologies</p>
+        <span class="tl-badge">Completed</span>
+        <p class="tl-desc">Built foundation in Python, SQL, and web technologies. Worked on exploratory data analysis and core data science workflows.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-yr">2025</div>
+      <div>
+        <p class="tl-role">Tech Contributor</p>
+        <p class="tl-co">GSSoC'25 · OSCI'25</p>
+        <p class="tl-desc">Active open-source contributor in GirlScript Summer of Code and Open Source Contribution Initiative 2025.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-yr">NPTEL</div>
+      <div>
+        <p class="tl-role">Cloud Computing Certification</p>
+        <p class="tl-co">IIT Kharagpur · NPTEL</p>
+        <p class="tl-desc">Completed Cloud Computing from IIT Kharagpur. Also holds certifications in Python, SQL, and Data Science fundamentals.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════
+     ACHIEVEMENTS
+════════════════════════ -->
+<section class="ach-sec" id="achievements">
+  <p class="eyebrow reveal">Recognition</p>
+  <h2 class="sec-h reveal">Achievements &amp; Hackathons</h2>
+  <div class="ach-grid">
+    <!--
+      ╔══════════════════════════════════════════════════╗
+      ║  CHANGE Q: Edit achievement cards                ║
+      ╚══════════════════════════════════════════════════╝
+    -->
+    <div class="ach-card reveal">
+      <i class="ti ti-trophy ach-ico"></i>
+      <div class="ach-num">6+</div>
+      <p class="ach-title">Hackathons</p>
+      <p class="ach-sub">HackYugma · AI Agent Hackathon · Code Igniter · TCS Tech Bytes · MRIT · Ghousia CE</p>
+    </div>
+    <div class="ach-card reveal">
+      <i class="ti ti-robot ach-ico"></i>
+      <div class="ach-num">AI</div>
+      <p class="ach-title">AI Agent Hackathon</p>
+      <p class="ach-sub">Product Space — AI-focused hackathon challenge</p>
+    </div>
+    <div class="ach-card reveal">
+      <i class="ti ti-flame ach-ico"></i>
+      <div class="ach-num">4+</div>
+      <p class="ach-title">Coding Competitions</p>
+      <p class="ach-sub">Code Igniter · TCS Tech Bytes · MRIT · Ghousia CE</p>
+    </div>
+    <div class="ach-card reveal">
+      <i class="ti ti-users ach-ico"></i>
+      <div class="ach-num">2022–26</div>
+      <p class="ach-title">Placement Coordinator</p>
+      <p class="ach-sub">Student &amp; Placement Coordinator, MCEM — led placements for 4 consecutive years</p>
+    </div>
+    <div class="ach-card reveal">
+      <i class="ti ti-git-branch ach-ico"></i>
+      <div class="ach-num">OS</div>
+      <p class="ach-title">Open Source Contribution</p>
+      <p class="ach-sub">Active contributor — GSSoC'25 &amp; OSCI'25</p>
+    </div>
+    <div class="ach-card reveal">
+      <i class="ti ti-certificate ach-ico"></i>
+      <div class="ach-num">3+</div>
+      <p class="ach-title">Certifications</p>
+      <p class="ach-sub">Cloud Computing (NPTEL · IIT KGP), Python, SQL, Data Science</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════
+     CONTACT
+════════════════════════ -->
+<section class="contact-sec" id="contact">
+  <div class="contact-left reveal">
+    <p class="eyebrow">Get In Touch</p>
+    <h2 class="contact-h">Let's build<br>something<br><em>together.</em></h2>
+    <div class="crows">
+      <!--
+        ╔══════════════════════════════════════════════════╗
+        ║  CHANGE R: Update contact details                ║
+        ╚══════════════════════════════════════════════════╝
+      -->
+      <div class="crow"><i class="ti ti-mail"></i><a href="mailto:sakshinhoskeri@gmail.com">sakshinhoskeri@gmail.com</a></div>
+      <div class="crow"><i class="ti ti-phone"></i><a href="tel:+918088173621">+91 8088173621</a></div>
+      <div class="crow"><i class="ti ti-map-pin"></i>India</div>
+    </div>
+    <div class="social-row">
+      <!--
+        ╔══════════════════════════════════════════════════╗
+        ║  CHANGE S: Update social links                   ║
+        ╚══════════════════════════════════════════════════╝
+      -->
+      <a href="https://github.com/sakshihn" target="_blank" class="sbtn">
+        <i class="ti ti-brand-github"></i>GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/sakshihn/" target="_blank" class="sbtn">
+        <i class="ti ti-brand-linkedin"></i>LinkedIn
+      </a>
+      <!--
+        ╔══════════════════════════════════════════════════╗
+        ║  CHANGE T: Add your Kaggle profile link          ║
+        ╚══════════════════════════════════════════════════╝
+      -->
+      <a href="https://www.kaggle.com/sakshihn" target="_blank" class="sbtn">
+        <i class="ti ti-brand-kaggle"></i>Kaggle
+      </a>
+    </div>
+  </div>
+  <div class="contact-right reveal">
+    <p class="form-title">Send a Message</p>
+    <!--
+      ╔══════════════════════════════════════════════════════════════════╗
+      ║  CHANGE U: Wire up the contact form                             ║
+      ║  Option 1 — Formspree (free, no backend needed):                ║
+      ║    1. Go to https://formspree.io → create free account          ║
+      ║    2. Create a new form → copy your form ID                     ║
+      ║    3. Replace action="https://formspree.io/f/YOUR_FORM_ID"      ║
+      ║  Option 2 — EmailJS:                                            ║
+      ║    Go to https://emailjs.com and follow their setup guide        ║
+      ╚══════════════════════════════════════════════════════════════════╝
+    -->
+    <form action="https://formspree.io/f/xvzyyadr" method="POST" id="contact-form">
+
+        <label class="flabel">Name</label>
+        <input class="finput" type="text" name="name" placeholder="Your name" required/>
+
+        <label class="flabel">Email</label>
+        <input class="finput" type="email" name="email" placeholder="your@email.com" required/>
+
+        <label class="flabel">Message</label>
+        <textarea class="finput" name="message" placeholder="Your message..." rows="3" style="resize:none;" required></textarea>
+
+        <button type="submit" class="fsubmit">
+            <i class="ti ti-send"></i>Send Message
+        </button>
+
+    </form>
+  </div>
+</section>
+
+<!-- ════════════════════════
+     FOOTER
+════════════════════════ -->
+<footer>
+  <a href="#" class="footer-name">Sakshi H N</a>
+  <span class="footer-copy">© 2026 — All rights reserved</span>
+  <div class="footer-links">
+    <a href="https://github.com/sakshihn" class="flink" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/sakshihn/" class="flink" target="_blank">LinkedIn</a>
+    <a href="https://www.kaggle.com/sakshihn" class="flink" target="_blank">Kaggle</a>
+  </div>
+</footer>
+
+<!-- ════════════════════════
+     JAVASCRIPT
+════════════════════════ -->
+<script>
+  /* 1. Scroll progress bar */
+  window.addEventListener('scroll', () => {
+    const scrollTop = document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('progress-bar').style.width = (scrollTop / scrollHeight * 100) + '%';
+  });
+
+  /* 2. Scroll reveal */
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 60);
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  /* 3. Gold rule grow on load */
+  setTimeout(() => {
+    const r = document.getElementById('hero-rule');
+    if (r) { r.style.width = '60px'; r.style.transition = 'width 0.9s cubic-bezier(0.16,1,0.3,1)'; }
+  }, 550);
+
+  /* 4. Contact form feedback */
+  const form = document.getElementById('contact-form');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('.fsubmit');
+      btn.innerHTML = '<i class="ti ti-loader-2" style="animation:rotateSlow 1s linear infinite;font-size:14px"></i> Sending...';
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+        if (res.ok) {
+          btn.innerHTML = '<i class="ti ti-circle-check" style="font-size:14px"></i> Sent!';
+          btn.style.background = '#4ade80';
+          btn.style.color = '#1C1510';
+          form.reset();
+          setTimeout(() => { btn.innerHTML = '<i class="ti ti-send"></i> Send Message'; btn.style.background = ''; btn.style.color = ''; }, 3000);
+        } else { btn.innerHTML = '<i class="ti ti-send"></i> Send Message'; alert('Something went wrong. Try emailing directly.'); }
+      } catch { btn.innerHTML = '<i class="ti ti-send"></i> Send Message'; }
+    });
+  }
+</script>
+</body>
+</html>
