@@ -1,92 +1,65 @@
+#  Sakshi's Portfolio 🌸
 
-# 🌸 Sakshi's Portfolio
+A clean, minimal personal portfolio website showcasing my journey, skills, projects, and experience in Python full stack development, Data Science, and Machine Learning.
 
-A clean, minimal, and aesthetic personal portfolio website built to showcase my journey, skills, projects, and experience in **Data Science, AI, and Machine Learning**.
-
----
+🔗 **Live site:** [sakshihn.netlify.app](https://sakshihn.netlify.app/)
 
 ## ✨ Features
 
-- Minimal modern UI
+- Minimal, modern UI with clean typography
 - Fully responsive design
-- Downloadable resume
-- Project showcase section
+- Smooth scroll animations
+- Project showcase with GitHub links
 - Skills & tech stack
+- Downloadable resume
+- Working contact form (Formspree)
 - Social media links
-- Smooth animations
-- Professional hero section
-- Clean typography & aesthetic layout
-
----
 
 ## 🚀 Tech Stack
 
-- HTML5
-- CSS3
-- JavaScript
-- VS Code
+- HTML5, CSS3, JavaScript
+- Formspree (contact form)
 - Git & GitHub
-- Netlify Deployment
+- Netlify (auto-deploys on every commit)
 
----
+## 📂 Sections
 
-## 📂 Sections Included
+Hero · About Me · Skills · Projects · Experience · Achievements · Contact
 
-- Hero Section
-- About Me
-- Skills
-- Projects
-- Experience
-- Contact
-- Resume Download
+## 🗂️ Project Structure
 
----
-
-## 🔗 Live Website
-
-```txt
-https://sakshihn.netlify.app/
-````
-
-## 🛠️ Installation & Setup
-
-Clone the repository:
-
-```bash
-git clone https://github.com/sakshihn/sakshi-portfolio.git
+```
+sakshi-portfolio/
+├── assets/
+│   ├── profile.png
+│   └── resume.pdf
+├── index.html
+└── README.md
 ```
 
-Open the project folder:
+## 🛠️ Run Locally
 
-```bash
+```
+git clone https://github.com/sakshihn/sakshi-portfolio.git
 cd sakshi-portfolio
 ```
 
-Run locally using VS Code Live Server.
-
----
+Then open the folder in VS Code and run it with Live Server.
 
 ## 📬 Contact
 
-* Email: [sakshinhoskeri@gmail.com](mailto:sakshinhoskeri@gmail.com)
-* LinkedIn: https://linkedin.com/in/sakshihn
-* GitHub: https://github.com/sakshihn
-
----
+- Email: [sakshinhoskeri@gmail.com](mailto:sakshinhoskeri@gmail.com)
+- LinkedIn: [linkedin.com/in/sakshihn](https://linkedin.com/in/sakshihn)
+- GitHub: [github.com/sakshihn](https://github.com/sakshihn)
 
 ## 💡 Future Improvements
 
-* Dark/Light mode toggle
-* Blog section
-* Interactive project cards
-* AI chatbot integration
-* More animations
-
----
+- Dark/Light mode toggle
+- Blog section
+- Interactive project cards
+- AI chatbot integration
+- More animations
 
 ## 🌷 Author
 
 Made with dedication by **Sakshi H N**
-Aspiring Data Scientist • AI Enthusiast • Tech Explorer
-
-```
